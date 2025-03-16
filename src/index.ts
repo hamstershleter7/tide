@@ -17,8 +17,8 @@ export default ({
 	x = 0,
 	y = 0
 }: Options = {}) => {
-	const images = document.querySelectorAll<Image>(`.${className}`);
-	const styles = document.createElement("style");
+	let images = document.querySelectorAll<Image>(`.${className}`);
+	let styles = document.createElement("style");
 
 	styles.textContent = `
 		.${className}-wrapper {
@@ -36,9 +36,9 @@ export default ({
 	`;
 	document.body.append(styles);
 
-	for (const original of images) {
-		const cloned = original.cloneNode(true) as typeof original;
-		const wrapper = document.createElement("div");
+	for (let original of images) {
+		let cloned = original.cloneNode(true) as typeof original;
+		let wrapper = document.createElement("div");
 
 		cloned.classList.remove(className);
 		cloned.classList.add(`${className}-clone`);
