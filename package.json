@@ -1,0 +1,36 @@
+{
+	"name": "cosha",
+	"version": "3.0.2",
+	"description": "Colorful shadows for your images. 🎨",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"homepage": "https://github.com/robinloeffel/cosha",
+	"author": "Robin Löffel",
+	"license": "MIT",
+	"keywords": [
+		"browser",
+		"image",
+		"shadow",
+		"colors",
+		"html",
+		"css filters",
+		"dom"
+	],
+	"files": [
+		"dist"
+	],
+	"devDependencies": {
+		"browser-sync": "^2.29.3",
+		"concurrently": "^8.2.2",
+		"eslint": "^8.55.0",
+		"eslint-config-sweet": "^18.0.0",
+		"gh-pages": "^6.1.0",
+		"typescript": "^5.3.3"
+	},
+	"scripts": {
+		"start": "concurrently 'tsc -w' 'browser-sync dist -w' -n 'typescript,browser-sync'",
+		"prepublishOnly": "rm -rf dist && tsc",
+		"postpublish": "gh-pages -d dist -s '*.{html,js}'"
+	}
+}
